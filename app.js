@@ -10,6 +10,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use("/",TodoRouter)
 app.use("/",UserRoute)
+if (TextDecoderFatal == null) {
+    TextDecoderFatal = new TextDecoder('utf8', { fatal: true });
+}
 app.listen(process.env.PORT,()=>{
     console.log("Port is running")
     Server()
